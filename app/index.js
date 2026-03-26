@@ -28,28 +28,25 @@ function alteraVisualizacaoDaPagina(parametroHtml, srcImg){
 
 btnFoco.addEventListener('click', () => {
     alteraVisualizacaoDaPagina('foco', '/imagens/foco.png');
-    if(btnFoco.className === 'app__card-button app__card-button--foco'){
-        btnFoco.className = 'app__card-button app__card-button--foco active';
-        btnCurto.className = 'app__card-button app__card-button--curto';
-        btnLongo.className = 'app__card-button app__card-button--longo';
-    }
+
+    btnFoco.classList.add('active');
+    btnCurto.classList.remove('active');
+    btnLongo.classList.remove('active');
 })
 
 btnCurto.addEventListener('click', () => {
     alteraVisualizacaoDaPagina('descanso-curto', '/imagens/descanso-curto.png');
-    if(btnCurto.className === 'app__card-button app__card-button--curto'){
-        btnFoco.className = 'app__card-button app__card-button--foco';
-        btnCurto.className = 'app__card-button app__card-button--curto active';
-        btnLongo.className = 'app__card-button app__card-button--longo';
-    }
+
+    btnCurto.classList.add('active');
+    btnFoco.classList.remove('active');
+    btnLongo.classList.remove('active');
 })
 
 btnLongo.addEventListener('click', () => {
     alteraVisualizacaoDaPagina('descanso-longo', '/imagens/descanso-longo.png');
-    if(btnLongo.className === 'app__card-button app__card-button--longo'){
-        btnFoco.className = 'app__card-button app__card-button--foco';
-        btnCurto.className = 'app__card-button app__card-button--curto';
-        btnLongo.className = 'app__card-button app__card-button--longo active';
-    }
+
+    btnLongo.classList.add('active');
+    btnFoco.classList.remove('active');
+    btnCurto.classList.remove('active');
 })
 
