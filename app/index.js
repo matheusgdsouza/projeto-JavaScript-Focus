@@ -5,14 +5,29 @@ const html = document.querySelector('html');
 const titulo = document.querySelector('.app__title');
 const imgPrincipal = document.querySelector('.app__image');
 
-function alteraVisualizacaoDaPagina(parametroHtml, textoParagrafo, srcImg){
+function alteraVisualizacaoDaPagina(parametroHtml, srcImg){
     html.setAttribute('data-contexto', parametroHtml);
-    titulo.innerHTML = textoParagrafo;
     imgPrincipal.src = srcImg;
+    switch(parametroHtml){
+        case 'foco':
+            titulo.innerHTML = 'Otimize sua produtividade,<br><strong class="app__title-strong">mergulhe no que importa.</strong>';
+            break;
+        
+        case 'descanso-curto':
+            titulo.innerHTML = 'Que tal dar uma respirada?<br><strong class="app__title-strong">Faça uma pausa curta!</strong>';
+            break;
+
+        case 'descanso-longo':
+            titulo.innerHTML = 'Hora de voltar à superficie.<br><strong class="app__title-strong">Faça uma pausa longa.</strong>';
+            break;
+
+        default:
+            break;
+    }
 }
 
 btnFoco.addEventListener('click', () => {
-    alteraVisualizacaoDaPagina('foco', 'Otimize sua produtividade,<br><strong class="app__title-strong">mergulhe no que importa.</strong>', '/imagens/foco.png');
+    alteraVisualizacaoDaPagina('foco', '/imagens/foco.png');
     if(btnFoco.className === 'app__card-button app__card-button--foco'){
         btnFoco.className = 'app__card-button app__card-button--foco active';
         btnCurto.className = 'app__card-button app__card-button--curto';
@@ -21,7 +36,7 @@ btnFoco.addEventListener('click', () => {
 })
 
 btnCurto.addEventListener('click', () => {
-    alteraVisualizacaoDaPagina('descanso-curto', 'Que tal dar uma respirada?<br><strong class="app__title-strong">Faça uma pausa curta!</strong>', '/imagens/descanso-curto.png');
+    alteraVisualizacaoDaPagina('descanso-curto', '/imagens/descanso-curto.png');
     if(btnCurto.className === 'app__card-button app__card-button--curto'){
         btnFoco.className = 'app__card-button app__card-button--foco';
         btnCurto.className = 'app__card-button app__card-button--curto active';
@@ -30,7 +45,7 @@ btnCurto.addEventListener('click', () => {
 })
 
 btnLongo.addEventListener('click', () => {
-    alteraVisualizacaoDaPagina('descanso-longo', 'Hora de voltar à superficie.<br><strong class="app__title-strong">Faça uma pausa longa.</strong>', '/imagens/descanso-longo.png');
+    alteraVisualizacaoDaPagina('descanso-longo', '/imagens/descanso-longo.png');
     if(btnLongo.className === 'app__card-button app__card-button--longo'){
         btnFoco.className = 'app__card-button app__card-button--foco';
         btnCurto.className = 'app__card-button app__card-button--curto';
