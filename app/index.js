@@ -4,6 +4,17 @@ const btnLongo = document.querySelector('.app__card-button--longo');
 const html = document.querySelector('html');
 const titulo = document.querySelector('.app__title');
 const imgPrincipal = document.querySelector('.app__image');
+const inputMusica = document.getElementById('alternar-musica');
+const musica = new Audio('/sons/luna-rise-part-one.mp3');
+musica.loop = true;
+
+inputMusica.addEventListener('change', () => {
+    if(musica.paused){
+        musica.play();
+    }else {
+        musica.pause();
+    }
+})
 
 function alteraVisualizacaoDaPagina(parametroHtml, srcImg){
     html.setAttribute('data-contexto', parametroHtml);
