@@ -129,6 +129,7 @@ const displayTimer = document.querySelector('.app__card-timer');
 const btnTimer = document.querySelector('#start-pause');
 const musicaIniciar = new Audio('/sons/play.wav');
 const musicaPausar = new Audio('/sons/pause.mp3');
+const musicaTempoEsgotado = new Audio('/sons/beep.mp3');
 
 let tempoDecorridoEmSegundos = null;
 let tempoDecorridoEmMinutos = null;
@@ -143,6 +144,7 @@ let diminuitempo = () => {
     }
     if(tempoDecorridoEmMinutos < 0) {
         clearInterval(intervalo);
+        musicaTempoEsgotado.play();
         alert('Tempo esgotado!');
         resetaBotaotimer();
         return;
