@@ -154,9 +154,9 @@ let diminuitempo = () => {
 }
 
 function iniciarContagemRegrassiva() {
-    let atributoTimer = btnTimer.getAttribute('alt');
-    if(atributoTimer === 'Botão iniciar') {
-        btnTimer.setAttribute('alt', 'Botão pausar');
+    let atributoTimer = btnTimer.querySelector('span').getAttribute('id');
+    if(atributoTimer === 'botao-iniciar') {
+        btnTimer.querySelector('span').setAttribute('id', 'botao-pausar');
         btnTimer.querySelector('span').innerHTML = 'Pausar';
         btnTimer.querySelector('img').setAttribute('src', '/imagens/pause.png');
         musicaIniciar.play();
@@ -199,7 +199,7 @@ btnLongo.addEventListener('click', () => {
 btnTimer.addEventListener('click', iniciarContagemRegrassiva);
 
 function resetaBotaotimer() {
-    btnTimer.setAttribute('alt', 'Botão iniciar');
+    btnTimer.querySelector('span').setAttribute('id', 'botao-iniciar');
     btnTimer.querySelector('span').innerHTML = 'Começar';
     btnTimer.querySelector('img').setAttribute('src', '/imagens/play_arrow.png');
 }
