@@ -158,6 +158,230 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
 }
 
+/* Estilos para a lista de tarefas */
+.app__task-list {
+    width: 40%;
+    margin: 0rem auto;
+    margin-bottom: 5rem;
+    color: var(--color-secondary);
+    font-family: Montserrat;
+}
+
+.app__task-list__container-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5rem;
+    border-bottom: #1875E9 0.2px solid;
+
+}
+
+.tag-text-em-andamento {
+    font-size: 1.3rem;
+}
+
+.tag-text-task-name {
+    font-size: 1.8rem;
+    padding-right: 10rem;
+    font-weight: bold;
+}
+
+.app__task-list__container-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3rem 0;
+}
+
+.app__task-list__container-menu__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.app__task-list__container-menu__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+.app__task-list__list__item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #ffffff93;
+    border-radius: 5px;
+    font-family: Montserrat;
+    margin-bottom: 1.5rem;
+}
+
+.app__task-list__list__item__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.app__task-list__list__item__container__img-check {
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.app__task-list__list__item__container__text {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: black;
+
+}
+
+.app__task-list__list__item__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+.app__task-list__container__new-task {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff93;
+    padding: 2rem;
+    border-radius: 5px;
+    font-family: Montserrat;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.app__task-lis__form-new-task {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.app__task-list__form-new-task__label {
+    font-size: 2rem;
+    color: black;
+    font-weight: 600;
+}
+
+.app__task-list__form-new-task__textarea {
+    padding: 0.8rem;
+    height: 120px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffffffab;
+}
+
+.app__task-list__form-new-task__textarea::placeholder {
+    color: #373737;
+    font-size: 1.6rem;
+    font-family: Montserrat;
+}
+
+.new-task__containter__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.new-task__containter__buttons__delet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    border: none;
+    padding: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.new-task__containter__buttons__delet p {
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.container__buttons__save-cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.new-task__containter__buttons__cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    border: none;
+    padding: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.new-task__containter__buttons__cancel p {
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.new-task__containter__buttons__save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    border: none;
+    padding: 1rem 1.5rem;
+    background-color: black;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.new-task__containter__buttons__save p {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+
+
+
+.app__task-list__butuon__new-task {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: var(--lils) 2px solid;
+    border-radius: 35px;
+    padding: 1.5rem 0;
+    cursor: pointer;
+}
+
+.app__task-list__butuon__new-task__text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--lils);
+}
+
+
+
+/* ----------------------------------- */
+
 .app__footer {
     display: flex;
     width: 100%;
@@ -250,3 +474,5 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 6rem;
     }
 }
+
+

@@ -15,6 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
+    <script src="./app/index.js" defer></script>
 </head>
 
 <body>
@@ -69,15 +70,66 @@
             </div>
         </section>
 
+        <section class="app__task-list">
+            <div class="app__task-list__container-text">
+                <p class="tag-text-em-andamento">#Em andamento:</p>
+                <p class="tag-text-task-name">Nome da tarefa em andamento</p>
+            </div>
+            <div class="app__task-list__container-menu">
+                <h1 class="app__task-list__container-menu__title">Lista de tarefas:</h1>
+                <button class="app__task-list__container-menu__button">
+                    <img class="app__task-list__container-menu__button__img" src="./imagens/OptionIcon.png" alt="Icone de opções">
+                </button>
+            </div>
+
+            <ul class="app__task-list__list">
+                <li class="app__task-list__list__item">
+                    <div class="app__task-list__list__item__container">
+                        <img src="./imagens/check.png" alt="Icone de tarefa concluida" class="app__task-list__list__item__container__img-check">
+                        <p class="app__task-list__list__item__container__text">Tarefa concluida</p>
+                    </div>
+                    <button class="app__task-list__list__item__button">
+                        <img src="./imagens/Edit.png" alt="Icone de editar" class="app__task-list__list__item__img-edit">
+                    </button>
+                </li>
+            </ul>
+
+            <div class="app__task-list__container__new-task">
+                <form class="app__task-lis__form-new-task">
+                    <label class="app__task-list__form-new-task__label" for="app__task-list__form-new-task__textarea">Adicionando tarefa</label>
+                    <textarea name="app__task-list__form-new-task__textarea" class= "app__task-list__form-new-task__textarea" id="app__task-list__form-new-task__textarea" placeholder="Em que você está trabalhando?"></textarea>
+                </form>
+                <div class="new-task__containter__buttons">
+                    <button class="new-task__containter__buttons__delet">
+                        <img src="./imagens/delete_outline.png" alt="Icone de deletar">
+                        <p>Deletar</p>
+                    </button>
+                    <div class="container__buttons__save-cancel">
+                        <button class="new-task__containter__buttons__cancel">
+                            <img src="./imagens/close.png" alt="Icone de cancelar">
+                            <p>Cancelar</p>
+                        </button>
+                        <button class="new-task__containter__buttons__save">
+                            <img src="./imagens/save.png" alt="Icone de salvar">
+                            <p>Salvar</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="app__task-list__butuon__new-task">
+                <img src="./imagens/Add_lilás.png" alt="Icone de nova tarefa" class="app__task-list__butuon__new-task__img">
+                <p class="app__task-list__butuon__new-task__text">Adicionar nova tarefa</p>
+            </button>
+        </section>
+
+
         <footer class="app__footer">
             <p class="app__footer-text">
                 Projeto desenvolvido por Matheus Souza. 
             </p>
         </footer>
     </main>
-
-    <script src="./app/index.js"></script>
-
 </body>
 
 </html>
