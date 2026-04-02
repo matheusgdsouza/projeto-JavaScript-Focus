@@ -16,6 +16,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <script src="./app/index.js" defer></script>
+    <script src="./app/taskList.js" defer></script>
 </head>
 
 <body>
@@ -83,19 +84,19 @@
             </div>
 
             <ul class="app__task-list__list">
-                <li class="app__task-list__list__item">
+                <!-- <li class="app__task-list__list__item">
                     <div class="app__task-list__list__item__container">
                         <img src="./imagens/check.png" alt="Icone de tarefa concluida" class="app__task-list__list__item__container__img-check">
-                        <p class="app__task-list__list__item__container__text">Tarefa concluida</p>
+                        <p class="app__task-list__list__item__container__text">Tarefa concluída</p>
                     </div>
                     <button class="app__task-list__list__item__button">
                         <img src="./imagens/Edit.png" alt="Icone de editar" class="app__task-list__list__item__img-edit">
                     </button>
-                </li>
+                </li> -->
             </ul>
 
             <div class="app__task-list__container__new-task">
-                <form class="app__task-lis__form-new-task">
+                <form class="app__task-lis__form-new-task" id="app__task-lis__form-new-task">
                     <label class="app__task-list__form-new-task__label" for="app__task-list__form-new-task__textarea">Adicionando tarefa</label>
                     <textarea name="app__task-list__form-new-task__textarea" class= "app__task-list__form-new-task__textarea" id="app__task-list__form-new-task__textarea" placeholder="Em que você está trabalhando?"></textarea>
                 </form>
@@ -109,7 +110,7 @@
                             <img src="./imagens/close.png" alt="Icone de cancelar">
                             <p>Cancelar</p>
                         </button>
-                        <button class="new-task__containter__buttons__save">
+                        <button form="app__task-lis__form-new-task" class="new-task__containter__buttons__save">
                             <img src="./imagens/save.png" alt="Icone de salvar">
                             <p>Salvar</p>
                         </button>

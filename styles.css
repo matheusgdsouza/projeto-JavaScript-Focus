@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .app__task-list__container__new-task {
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     background-color: #ffffff93;
     padding: 2rem;
