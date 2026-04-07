@@ -1,34 +1,29 @@
 const btnNovaTarefa = document.querySelector('.app__task-list__butuon__new-task');
 const containerNovaTarefa = document.querySelector('.app__task-list__container__new-task');
 const formNovaTarefa = document.querySelector('.app__task-lis__form-new-task');
-const textAreaNovaTarefa = document.querySelector('.app__task-list__form-new-task__textarea');
-const listaTarefas = document.querySelector('.app__task-list__list');
 
-// Lendo se já existem tarefas no localStorage, caso exista, transformando a string em array, caso não exista, criando um array vazio
-const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
-
-// Exibindo formulario ao clicar no botão de nova tarefa
 btnNovaTarefa.addEventListener('click', () => {
     containerNovaTarefa.style.display = 'flex';
-})
+});
 
+// -------------------------------------------------------------------------------------------
 
-// Criando nova tarefa e adicionando a lista de tarefas
-function criarNovaTarefa(tarefa) {
-    listaTarefas.innerHTML += `
-        <li class="app__task-list__list__item">
-            <div class="app__task-list__list__item__container">
-                <img src="./imagens/check.png" alt="Icone de tarefa concluida" class="app__task-list__list__item__container__img-check">
-                <p class="app__task-list__list__item__container__text">${tarefa.descricao}</p>
-            </div>
-            <button class="app__task-list__list__item__button">
-                <img src="./imagens/Edit.png" alt="Icone de editar" class="app__task-list__list__item__img-edit">
-            </button>
-        </li>
-    `;
+const textAreaNovaTarefa = document.querySelector('.app__task-list__form-new-task__textarea');
+const elementoListaTarefas = document.querySelector('.app__task-list__list');
+const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+const tarefaEmAndamento = document.querySelector('.tag-text-task-name');
+let tarefaSelecionada = null;
+let liTarefaSelecionada = null;
+
+function adicionaNaLocalStore() {
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
 }
 
-// Criando nova tarefa e adicionando ao localSorage
+function limparFormDeNovaTarefa() {
+    containerNovaTarefa.style.display = 'none';
+    textAreaNovaTarefa.value = '';
+}
+
 formNovaTarefa.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -37,19 +32,95 @@ formNovaTarefa.addEventListener('submit', (event) => {
     }
 
     tarefas.push(tarefa);
-    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    adicionaNaLocalStore();
 
-    criarNovaTarefa(tarefa);
+    elementoListaTarefas.appendChild(criarNovaTarefa(tarefa));
 
-    containerNovaTarefa.style.display = 'none';
-    textAreaNovaTarefa.value = '';
-
-
+    limparFormDeNovaTarefa()
 })
 
-// Exibindo as tarefas salvas no localStorage
+
+
+function criarNovaTarefa(tarefa) {
+    const li = document.createElement('li');
+    li.classList.add('app__task-list__list__item');
+
+    const divContainer = document.createElement('div');
+    divContainer.classList.add('app__task-list__list__item__container');
+
+    const imgCheck = document.createElement('img');
+    imgCheck.src = './imagens/check.png';
+    imgCheck.alt = 'Icone de tarefa concluida';
+    imgCheck.classList.add('app__task-list__list__item__container__img-check');
+
+    const pText = document.createElement('p');
+    pText.classList.add('app__task-list__list__item__container__text');
+    pText.textContent = tarefa.descricao;
+
+    const buttonEdit = document.createElement('button');
+    buttonEdit.classList.add('app__task-list__list__item__button');
+
+    buttonEdit.addEventListener('click', () => {
+        const novaDescricao = prompt('Digite a nova descrição da tarefa:', tarefa.descricao);
+        if (novaDescricao) {
+            tarefa.descricao = novaDescricao.trim();
+            pText.textContent = tarefa.descricao;
+            adicionaNaLocalStore();
+        }
+    })
+
+    li.addEventListener('click', () => {
+        const tarefasCriadas = document.querySelectorAll('.app__task-list__list__item');
+        tarefasCriadas.forEach(tarefaCriada => {
+            tarefaCriada.classList.remove('app__task-list__list__item-active');
+        });
+        if(tarefaSelecionada == tarefa) {
+            tarefaEmAndamento.textContent = "";
+            tarefaSelecionada = null;
+            liTarefaSelecionada = null;
+            li.classList.remove('app__task-list__list__item-active');
+            return
+        }
+        tarefaSelecionada = tarefa;
+        liTarefaSelecionada = li;
+        tarefaEmAndamento.textContent = tarefa.descricao;
+        
+        li.classList.add('app__task-list__list__item-active')
+           
+    })
+
+    const imgEdit = document.createElement('img');
+    imgEdit.src = './imagens/Edit.png';
+    imgEdit.alt = 'Icone de editar';
+    imgEdit.classList.add('app__task-list__list__item__img-edit');
+
+
+    divContainer.appendChild(imgCheck);
+    divContainer.appendChild(pText);
+    buttonEdit.appendChild(imgEdit);
+    li.appendChild(divContainer);
+    li.appendChild(buttonEdit);
+
+    return li;
+}
+
 tarefas.forEach(tarefa => {
-    const novaTarefaCriada = criarNovaTarefa(tarefa);
-    listaTarefas.innerHTML += novaTarefaCriada;
+    elementoListaTarefas.appendChild(criarNovaTarefa(tarefa));
+});
+
+const btnCancelar = document.querySelector('.new-task__containter__buttons__cancel');
+btnCancelar.addEventListener('click', () => {
+    limparFormDeNovaTarefa();
+});
+
+document.addEventListener('FocoFinalizado', () => {
+    if(tarefaSelecionada && liTarefaSelecionada) {
+        liTarefaSelecionada.classList.remove('app__task-list__list__item-active');
+        liTarefaSelecionada.classList.add('app__task-list__list__item-complete');
+        liTarefaSelecionada.querySelector('button').setAttribute('disabled', 'disabled');
+        tarefaEmAndamento.textContent = "";
+    }
 })
+
+
 

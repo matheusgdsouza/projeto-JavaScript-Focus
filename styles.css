@@ -219,6 +219,35 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.5rem;
 }
 
+.app__task-list__list__item-active {
+    border: solid 5px white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #ffffff93;
+    border-radius: 5px;
+    font-family: Montserrat;
+    margin-bottom: 1.5rem;
+}
+
+.app__task-list__list__item-complete {
+    background-color: rgba(0, 255, 100, 0.3); 
+  
+    /* O segredo para o efeito translúcido embaçado */
+    backdrop-filter: blur(10px);
+  
+    /* Ajustes extras para estética */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+}
+
+.app__task-list__list__item-complete button {
+    cursor: not-allowed;
+}
+
 .app__task-list__list__item__container {
     display: flex;
     flex-direction: row;
