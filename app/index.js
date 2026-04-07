@@ -103,8 +103,8 @@ function alteraApresentacaoDaPagina(atributoHtml) {
             btnLongo.classList.remove('active');
             resetaBotaotimer();
             clearInterval(intervalo);
-            tempoDecorridoEmMinutos = 0;
-            tempoDecorridoEmSegundos = 3;
+            tempoDecorridoEmMinutos = 45;
+            tempoDecorridoEmSegundos = 0;
             displayTimer.innerHTML = `${tempoDecorridoEmMinutos < 10 ? '0' : ''}${tempoDecorridoEmMinutos}:${tempoDecorridoEmSegundos < 10 ? '0' : ''}${tempoDecorridoEmSegundos}`;
             break;
         
