@@ -516,6 +516,14 @@ h1, h2, h3, h4, h5, h6 {
     .app__section-banner-container {
         width: 48rem;
     }
+
+    .app__task-list {
+        width: 60%;
+    }
+
+    .app__task-list__lista-edicao {
+        right: 25rem;
+    }
 }
 
 /* Para Celulares */
@@ -530,6 +538,14 @@ h1, h2, h3, h4, h5, h6 {
 
     .app__card-timer {
         font-size: 6rem;
+    }
+
+    .app__task-list {
+        width: 80%;
+    }
+
+    .app__task-list__lista-edicao {
+        right: 12rem;
     }
 }
 
