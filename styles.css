@@ -205,6 +205,35 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
+.app__task-list__lista-edicao {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    right: 55rem;
+    background-color: #1B293B;
+    border: solid 2px #144480;
+    border-radius: 15px;
+}
+
+.app__task-list__lista-edicao__button{
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+}
+
+.app__task-list__lista-edicao__button:hover {
+    background-color: #144480;
+}
+
 
 .app__task-list__list__item {
     width: 100%;
